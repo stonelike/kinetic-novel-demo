@@ -53,9 +53,10 @@ def room1a():
     print "You find yourself gazing at a world of char and ash atop red soil  Your vantage point is atop a large stone ridge, jutting starkly from the landscape.  Gazing opposite the lowering sun, you see that between the ruin below and a large stretch of barren mountains in the far distance, there is only desert, marked by the occasional jut of crumpled architecture from other destroyed buildings."
     print "Twisting your head in other directions, the view is much the same."
     print "Under your gaze, nothing stirs.  Whatever event it was that ruined this place seems to have happened long ago.  You see no evident sign of life.  Reflecting on the ruby sun lowering quietly behind you, you quietly appreciate that you didn't show up here in the middle of the day, as the heat of this place would likely swelter you."
-    print "The periodic clang rings out behind you once again.  You eye the path you climbed up, and are pretty sure you can get back down again intact."
+    print "The periodic clang rings out behind you once again.  You eye the path you climbed up, and are pretty sure you can climb down again intact."
+    global robodeath
     if robodeath == True:
-        "You have the faint impression that you have somehow been here before."
+        print "You have the faint impression that you have somehow been here before."
     print "What do you do?"
 
 
@@ -78,6 +79,7 @@ def room1b():
     print "Through cracks in the ruin above, shafts of red light bore down, and you can glimpse the ruby sun burning hotly above you; spears of heat in the dark."
     print "Suddenly, to your shock, a stark, iron facsimile of a human face burns into being above you, and hear a voice that sounds like iron ore being squeezed through a sieve."
 
+    global robodeath
     if robodeath == True:
         room1z()
 
@@ -173,6 +175,7 @@ def room1e():
         choice = get_input()
 
         if choice == "yes":
+            global robodeath
             robodeath = True
 
             print "The mechanical face dips briefly in a nod.  Immediately, the ground beneath you rumbles with forces unseen, and air begins to howl up and around you from the artificial chasm beneath the dais.  The atmosphere shrieks with ozone and power."
@@ -264,6 +267,10 @@ def room1():
     print "A faint, ringing 'clank'-like sound rings from part of the structure, reminding you of the sound an oil derrick might make.  You listen for some minutes; it rings out periodically, a deep resonation, sounding from a part of the ruin that is still partially intact."
     print "Around you, you see a small, vaguely tower-like shard of the ruin.  You could climb the ruin there and use it as a vantage point perhaps you could spot some sign of civilization?  Or, you could explore the intact part of the ruin, and try to find the source of that clanging sound."
 
+    global robodeath
+    if robodeath == True:
+        print "You have the faint impression that you have somehow been here before."
+
     while True:
         print "What do you do?"
 
@@ -316,6 +323,27 @@ def room1z():
     print "\"EVEN FOR THOSE WHO SEEK SELF-DESTRUCTION, THE ESSENCE OF LIFE IS PERSISTENT.  IT RISES AGAIN.  PERHAPS THAT IS WHY I PERSIST.\""
     print "The room begins to vibrate as ancient powers surge through the ground beneath you once again.  Heat rises in a funnel of air, roughly blasting across your body from the chasm below."
     print "The being's face sparks with constrained energy.  \"SHALL I TRY TO RELEASE YOU AGAIN?\""
+
+    while True:
+
+        choice = get_input()
+
+        if choice == "yes":
+            global robodeath
+            robodeath = True
+
+            print "The mechanical face dips briefly in a nod.  Immediately, the ground beneath you rumbles with forces unseen, and air begins to howl up and around you from the artificial chasm beneath the dais.  The atmosphere shrieks with ozone and power."
+            print "The entity fades from before you as the world flares to white."
+            print "\"CEASE.\""
+
+            room0()
+
+        elif choice == "no":
+
+            room1y()
+
+        else:
+            print "\"NONBINARY INPUT DETECTED.  RESEND PACKET.\""
 
 
 
